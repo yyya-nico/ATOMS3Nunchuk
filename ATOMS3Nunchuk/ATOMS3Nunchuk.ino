@@ -4,7 +4,7 @@
 
 BleMouse bleMouse("Nunchuck Mouse", "Created by yyya_nico");
 
-#define INITIAL_COLOR 0x002600
+#define INITIAL_COLOR 0x260000
 #define NUNCHK_ADDR (0x52)
 #define COMPLETE_COUNT (5)
 #define NUNCHK_Z_MASK 0x01
