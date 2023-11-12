@@ -2,7 +2,7 @@
 #include "Wire.h"
 #include <BleMouse.h>
 
-BleMouse bleMouse("Nunchuck Mouse", "Created by yyya_nico");
+BleMouse bleMouse("Bluetooth Nunchuk Mouse", "Created by yyya_nico");
 
 #define INITIAL_COLOR 0x080000
 #define NUNCHK_ADDR (0x52)
