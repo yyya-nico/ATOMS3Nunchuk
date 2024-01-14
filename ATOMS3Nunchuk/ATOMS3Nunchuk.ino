@@ -4,7 +4,7 @@
 
 BleMouse bleMouse("Bluetooth Nunchuk Mouse", "Created by yyya_nico");
 
-#define INITIAL_COLOR 0x080000
+#define INITIAL_COLOR 0xff0000
 #define NUNCHK_ADDR (0x52)
 #define COMPLETE_COUNT (5)
 #define NUNCHK_Z_MASK 0x01
@@ -20,9 +20,10 @@ static bool disableScroll = false;
 void setup() {
   bleMouse.begin();
   initNunchuk();
-  M5.begin(false, true, false, true);
-  M5.dis.drawpix(INITIAL_COLOR);
-  M5.dis.show();
+  AtomS3.begin(true);
+  AtomS3.dis.setBrightness(10);
+  AtomS3.dis.drawpix(INITIAL_COLOR);
+  AtomS3.dis.update();
 }
 
 void loop() {
@@ -30,8 +31,8 @@ void loop() {
   int     y      = 0;
   uint8_t button = 0;
   if(bleMouse.isConnected()){
-    M5.dis.drawpix(0x000026);
-    M5.dis.show();
+    AtomS3.dis.drawpix(0x0000ff);
+    AtomS3.dis.update();
     if(nunchuckIsAvailable(&x, &y, &button) ){
       int xPosi = x - initXposi;
       int yPosi = y - initYposi;
@@ -90,8 +91,8 @@ void loop() {
       bleMouse.release(MOUSE_ALL);
     }
   } else {
-    M5.dis.drawpix(INITIAL_COLOR);
-    M5.dis.show();
+    AtomS3.dis.drawpix(INITIAL_COLOR);
+    AtomS3.dis.update();
   }
   delay(10);
 }
