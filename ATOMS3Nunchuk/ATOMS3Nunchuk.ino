@@ -23,7 +23,7 @@ void setup() {
   AtomS3.begin(true);
   AtomS3.dis.setBrightness(10);
   AtomS3.dis.drawpix(INITIAL_COLOR);
-  AtomS3.dis.update();
+  AtomS3.update();
 }
 
 void loop() {
@@ -32,7 +32,7 @@ void loop() {
   uint8_t button = 0;
   if(bleMouse.isConnected()){
     AtomS3.dis.drawpix(0x0000ff);
-    AtomS3.dis.update();
+    AtomS3.update();
     if(nunchuckIsAvailable(&x, &y, &button) ){
       int xPosi = x - initXposi;
       int yPosi = y - initYposi;
@@ -92,7 +92,7 @@ void loop() {
     }
   } else {
     AtomS3.dis.drawpix(INITIAL_COLOR);
-    AtomS3.dis.update();
+    AtomS3.update();
   }
   delay(10);
 }
