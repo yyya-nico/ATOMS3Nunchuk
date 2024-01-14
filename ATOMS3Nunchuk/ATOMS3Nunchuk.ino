@@ -9,7 +9,7 @@ BleMouse bleMouse("Bluetooth Nunchuk Mouse", "Created by yyya_nico");
 #define COMPLETE_COUNT (5)
 #define NUNCHK_Z_MASK 0x01
 #define NUNCHK_C_MASK 0x02
-#define POSITION_MARGIN 3
+#define POSITION_MARGIN 5
 
 static int initXposi = 0;
 static int initYposi = 0;
