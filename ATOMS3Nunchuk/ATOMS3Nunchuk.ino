@@ -1,5 +1,5 @@
 #include <M5AtomS3.h>
-#include "Wire.h"
+#include <Wire.h>
 #include <BleMouse.h>
 
 BleMouse bleMouse("Bluetooth Nunchuk Mouse", "Created by yyya_nico");
@@ -18,10 +18,10 @@ static bool disableCount = false;
 static bool disableScroll = false;
 
 void setup() {
+  AtomS3.begin(true);
   bleMouse.begin();
   initNunchuk();
-  AtomS3.begin(true);
-  AtomS3.dis.setBrightness(10);
+  AtomS3.dis.setBrightness(50);
   AtomS3.dis.drawpix(INITIAL_COLOR);
   AtomS3.update();
 }
@@ -100,7 +100,7 @@ void loop() {
 void initNunchuk(void) {
   uint8_t     dummy = 0;
 
-  Wire.begin();
+  Wire.begin(AtomS3.In_I2C.getSDA(), AtomS3.In_I2C.getSCL());
   Wire.beginTransmission(NUNCHK_ADDR);
   Wire.write((uint8_t)0x40);
   Wire.write((uint8_t)0x00);
